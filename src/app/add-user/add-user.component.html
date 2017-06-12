@@ -1,0 +1,20 @@
+<form #addUserForm="ngForm">
+<div class="row col-lg-12 marginTop">
+<div class="col-lg-4">
+<span class="col-lg-3">Name :</span>
+<span class="col-lg-9"><input type="text" [(ngModel)]="newuser.name" name="name" id="name" required  #name="ngModel"></span>
+<div [hidden]="name.valid || name.pristine" class="alert alert-danger"> Name is required   </div>
+</div>
+<div class="col-lg-4">
+<span class="col-lg-4">Location :</span>
+<span class="col-lg-8"><input type="text" [(ngModel)]="newuser.location" name="location" id="location" required #location="ngModel"></span>
+<div [hidden]="location.valid || location.pristine" class="alert alert-danger"> location is required   </div>
+</div>
+<div class="col-lg-4">
+<span class="col-lg-3"><button type="button" class="btn btn-primary" (click)="addNewUser(newuser)" [disabled]="!addUserForm.form.valid">Add</button></span>
+<span class="col-lg-9"></span>
+</div>
+</div>
+</form>
+
+<user-list [customer]="newcustomer"></user-list>
